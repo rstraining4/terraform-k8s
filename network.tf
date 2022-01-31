@@ -66,9 +66,7 @@ resource "aws_security_group" "k8s" {
   description = "Allow web inbound traffic"
   vpc_id      = aws_vpc.K8SVPC.id
 
-  ingress {
-    
-  }
+  
   ingress {
     from_port        = 0
     to_port          = 0
