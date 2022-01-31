@@ -23,7 +23,7 @@ variable "istance_type" {
 }
 
 variable "name_prefixes_node" {
-  default =  "k8s-node"
+  default =  ["k8s-node"]
 }
 
 variable "name_prefixes_master" {
