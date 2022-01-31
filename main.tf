@@ -10,9 +10,10 @@ resource "aws_instance" "k8s" {
   count                  = 3
 
   user_data = "${file("init.sh")}"
-  
+
   tags = {
-    Name = "k8s-${count.index}"
+    #Name = "k8s-${count.index}"
+    Name = "${element(var.name_prefixes, count.index)}${count.index + 1}"
   }
   }
   output "instance_public_ip" {

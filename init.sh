@@ -20,3 +20,4 @@ systemctl daemon-reload
 systemctl restart docker
 
 swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
