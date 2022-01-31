@@ -1,4 +1,4 @@
-resource "aws_vpc" "MyVPC" {
+resource "aws_vpc" "K8SVPC" {
   cidr_block       = "172.20.0.0/16"
   instance_tenancy = "default"
 
