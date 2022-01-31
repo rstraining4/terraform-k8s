@@ -9,11 +9,7 @@ resource "aws_instance" "k8s" {
   associate_public_ip_address = true
   count                  = 3
 
-  #network_interface {
-  # network_interface_id = aws_network_interface.web-instance-nic.id
-  #  device_index         = 0
-  #}
-
+ 
 user_data = <<-EOF
                #!/bin/bash
                 yum install -y httpd php git wget
@@ -34,12 +30,12 @@ user_data = <<-EOF
                 find /var/www -type f -exec sudo chmod 0664 {} \;
                 EOF
   tags = {
-    Name = "k8s"
+    Name = "k8s-${count.index}"
   }
   }
   output "instance_public_ip" {
-  value = aws_instance.k8s.public_ip
+  value = aws_instance.k8s-*.public_ip
 }
   output "instance_private_ip" {
-  value = aws_instance.k8s.private_ip
+  value = aws_instance.k8s-*.private_ip
 }
