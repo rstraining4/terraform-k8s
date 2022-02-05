@@ -34,7 +34,7 @@ resource "aws_instance" "k8s-node2" {
   user_data = "${file("init_node2.sh")}"
 
   tags = {
-    Name = var.name_prefixes_node1
+    Name = var.name_prefixes_node2
   }
   }
 
