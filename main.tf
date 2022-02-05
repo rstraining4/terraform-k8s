@@ -16,7 +16,7 @@ resource "aws_instance" "k8s-node1" {
   #}
 
   tags = {
-    Name = var.name_prefixes_node2
+    Name = var.name_prefixes_node1
   }
   }
 
