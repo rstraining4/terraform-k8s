@@ -22,8 +22,12 @@ variable "istance_type" {
   description = "aws istance type"
 }
 
-variable "name_prefixes_node" {
-  default =  ["k8s-node"]
+variable "name_prefixes_node1" {
+  default =  ["k8s-node1"]
+}
+
+variable "name_prefixes_node2" {
+  default =  ["k8s-node2"]
 }
 
 variable "name_prefixes_master" {
