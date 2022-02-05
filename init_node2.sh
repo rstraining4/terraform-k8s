@@ -22,4 +22,6 @@ systemctl restart docker
 swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
-sudo hostnamect set-hostname k8s-node2
+sudo hostnamectl set-hostname k8s-node2
+
+bash
