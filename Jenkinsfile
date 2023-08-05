@@ -13,16 +13,62 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/rstraining4/terraform-k8s.git']]])
             }
         }
-        stage('terraform init') {
+stage('Terraform action - init') {
             steps {
-                sh ('terraform init')
+				sh ('terraform init')
             }
         }
-        stage('terraform action') {
+		stage('Terraform action - plan') {
+			when {
+				expression {
+					params.terra_action == "plan" || params.terra_action == "apply"
+				}
+			}
             steps {
-               echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto-approve')
+				sh "pwd"
+					script {
+						if(params.tf_vars == "") {
+							sh "terraform plan"
+						}
+						else{
+							sh 'terraform plan -var="$tf_vars"'
+
+					}
+
+				}
+            }
+        }
+		stage('Terraform action - apply') {
+			when {
+				expression {
+					params.terra_action == "apply"
+				}
+			}
+            steps {
+				sh "pwd"
+					script {
+						if(params.tf_vars == "") {
+							sh "terraform apply --auto-approve"
+						}
+						else{
+							sh 'terraform apply -var="$tf_vars" --auto-approve'
+
+					}
+				}
+            }
+        }
+		stage('Terraform action - destroy') {
+			when {
+				expression {
+					params.terra_action == "destroy"
+				}
+			}
+            steps {
+					sh "pwd"
+					sh "terraform plan --destroy"
+					sh "terraform destroy --auto-approve"
+
             }
         }
     }
-}
+ }
