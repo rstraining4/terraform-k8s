@@ -3,6 +3,12 @@ pipeline {
     options {
             ansiColor('xterm')
     }
+    parameters {
+    		string(name: "terra_action", defaultValue: "plan", description: "Terraform action to be performed")
+    		//string(name: "git_codebase", defaultValue: "git@ec2-18-200-215-85.eu-west-1.compute.amazonaws.com:ibm-admin/sastoaws-infra.git", description: "git location of the terraform config files")
+    		//string(name: "main_dir_name", defaultValue: "/var/lib/jenkins/workspace/prod/CD_Pipelines/terraform-ecs-ec2", description: "main directory to execute terraform main.tf from")
+    		string(name: "tf_vars", defaultValue: "", description: "TF vars to be passed in TF command. ex - image_id=ami-abc123")
+    }
     environment {
                 AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
                 AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
