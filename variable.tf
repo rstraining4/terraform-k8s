@@ -21,7 +21,10 @@ variable "istance_type" {
   default     = "t2.micro"
   description = "aws istance type"
 }
-
+variable "istance_type_master" {
+  default     = "t2.medium"
+  description = "aws istance type"
+}
 variable "name_prefixes_node1" {
   default =  "k8s-node1"
 }

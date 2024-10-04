@@ -40,7 +40,7 @@ resource "aws_instance" "k8s-node2" {
 
 resource "aws_instance" "k8s-master" {
   ami           = var.aws_ami
-  instance_type = var.istance_type
+  instance_type = var.istance_type_master
   key_name      = "aws"
   availability_zone = var.az1
   monitoring             = true
