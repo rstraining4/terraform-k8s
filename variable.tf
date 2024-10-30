@@ -1,5 +1,5 @@
 variable "aws_region" {
-  default     = "ap-south-1"
+  default     = "us-east-1"
   description = "aws region where our resources going to create choose"
   #replace the region as suits for your requirement
 }
@@ -9,11 +9,11 @@ variable "aws_ami" {
 }
 
 variable "az1" {
-  default     = "ap-south-1a"
+  default     = "us-east-1a"
   description = "az1"
 }
 variable "az2" {
-  default     = "ap-south-1b"
+  default     = "us-east-1b"
   description = "az2"
 }
 
