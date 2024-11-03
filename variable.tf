@@ -4,7 +4,7 @@ variable "aws_region" {
   #replace the region as suits for your requirement
 }
 variable "aws_ami" {
-  default     = "ami-005fc0f236362e99f"
+  default     = "ami-0b8c6b923777519db"
   description = "Amazon Linux"
 }
 
