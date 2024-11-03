@@ -1,7 +1,7 @@
 resource "aws_instance" "k8s-node1" {
   ami           = var.aws_ami
   instance_type = var.istance_type
-  key_name      = "aws_k8s"
+  key_name      = "aws"
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.k8s.id]
@@ -23,7 +23,7 @@ resource "aws_instance" "k8s-node1" {
 resource "aws_instance" "k8s-node2" {
   ami           = var.aws_ami
   instance_type = var.istance_type
-  key_name      = "aws_k8s"
+  key_name      = "aws"
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.k8s.id]
@@ -41,7 +41,7 @@ resource "aws_instance" "k8s-node2" {
 resource "aws_instance" "k8s-master" {
   ami           = var.aws_ami
   instance_type = var.istance_type_master
-  key_name      = "aws_k8s"
+  key_name      = "aws"
   availability_zone = var.az1
   monitoring             = true
   vpc_security_group_ids = [aws_security_group.k8s.id]
